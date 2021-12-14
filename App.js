@@ -1,11 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 
 export default function App() {
+  const [def, setDef] = useState("asd");
+  const handleChange = () => {
+    setDef("fdsfdsfds");
+  };
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>Hello from React Native</Text>
+      <Text>go go go</Text>
+      <TextInput
+        style={{
+          height: 40,
+          borderColor: "gray",
+          borderWidth: 1,
+        }}
+        // onChange={handleChange}
+        defaultValue={def}
+      />
+      <Button title="Press me" onPress={handleChange} />
       <StatusBar style="auto" />
     </View>
   );
