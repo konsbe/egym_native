@@ -2,10 +2,16 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 
-import { createAppContainer } from 'react-navigation';
-import { createDrawerNavigator } from 'react-navigation-drawer';
-import { Dimensions } from "react-native"
-import { Feather } from '@expo/vector-icons'
+
+import {
+  createAppContainer,
+  DrawerItems,
+  SafeAreaView,
+  contentOptions,
+} from "react-navigation";
+import { createDrawerNavigator } from "react-navigation-drawer";
+import { Dimensions } from "react-native";
+import { Feather } from "@expo/vector-icons";
 
 import {
   ProfileScreen,
@@ -14,20 +20,61 @@ import {
   TestScreen,
   CoursesScreen,
   SignOutScreen,
-  SignInScreen
-} from "./screens"
-import SideBar from './components/SideBar';
-const DrawerNavigator = createDrawerNavigator({
-  ProfileScreen,
-  MyWokoutScreen,
-  HomeScreen,
-  TestScreen,
-  CoursesScreen,
-  SignOutScreen,
   SignInScreen,
-}, {
-  contentComponent: props => <SideBar {...props}/>
-});
+} from "./screens";
+import SideBar from "./components/SideBar";
+const DrawerNavigator = createDrawerNavigator(
+  {
+    ProfileScreen: {
+      screen: ProfileScreen,
+      navigationOptions: {
+        drawerIcon: ({ tintColor }) => <Feather name="user" size={16} />,
+      },
+    },
+    MyWokoutScreen: {
+      screen: MyWokoutScreen,
+      navigationOptions: {
+        drawerIcon: ({ tintColor }) => <Feather name="earlybirds" size={16} />,
+      },
+    },
+
+    HomeScreen: {
+      screen: HomeScreen,
+      navigationOptions: {
+        drawerIcon: ({ tintColor }) => <Feather name="home" size={16} />,
+      },
+    },
+    TestScreen: {
+      screen: TestScreen,
+      navigationOptions: {
+        drawerIcon: ({ tintColor }) => <Feather name="trending-up" size={16} />,
+      },
+    },
+    CoursesScreen: {
+      screen: CoursesScreen,
+      navigationOptions: {
+        drawerIcon: ({ tintColor }) => (
+          <Feather name="shopping-bag" size={16} />
+        ),
+      },
+    },
+    SignOutScreen: {
+      screen: SignOutScreen,
+      navigationOptions: {
+        drawerIcon: ({ tintColor }) => <Feather name="log-out" size={16} />,
+      },
+    },
+    SignInScreen: {
+      screen: SignOutScreen,
+      navigationOptions: {
+        drawerIcon: ({ tintColor }) => <Feather name="log-in" size={16} />,
+      },
+    },
+  },
+  {
+    contentComponent: (props) => <SideBar {...props} />,
+  }
+);
 
 export default createAppContainer(DrawerNavigator);
 // import "./styles.css";
