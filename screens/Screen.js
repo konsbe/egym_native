@@ -18,7 +18,7 @@ export default class Screen extends React.Component {
             style={{ alignItems: "flex-end", margin: 16 }}
             onPress={this.props.navigation.openDrawer}
           >
-            <FontAwesome5 name="bars" size={24} color="#161924" />
+            <FontAwesome5 name="bars" size={30} color="#161924" />
           </TouchableOpacity>
           <View
             style={{
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FFF",
-    marginTop: 20,
+    marginTop: 16,
 
     // textAlign: "right",
   },
