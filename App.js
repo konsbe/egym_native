@@ -65,7 +65,7 @@ const DrawerNavigator = createDrawerNavigator(
       },
     },
     SignInScreen: {
-      screen: SignOutScreen,
+      screen: SignInScreen,
       navigationOptions: {
         drawerIcon: ({ tintColor }) => <Feather name="log-in" size={16} />,
       },

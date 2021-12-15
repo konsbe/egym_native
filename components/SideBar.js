@@ -14,7 +14,7 @@ import { createDrawerNavigator } from "react-navigation-drawer";
 import { DrawerNavigatorItems } from "react-navigation-drawer";
 import { Ionicons } from "@expo/vector-icons";
 
-export default Sidebar = (props) => (
+const SideBar = (props) => (
   <ScrollView>
     <ImageBackground
       source={require("../assets/abstract.jpg")}
@@ -52,3 +52,4 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
 });
+export default SideBar;
