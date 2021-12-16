@@ -10,12 +10,14 @@ import "firebase/compat/firestore";
 // if (firebase.apps.length === 0) {
 //   firebase.initializeApp(firebaseConfig)
 // }
+import { Provider } from "react-redux";
+import { store } from "./redux/createStore";
 
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from "@react-navigation/native";
 // import { NavigationContainer } from '@react-navigation/native';
-import LandingScreen from './components/auth/Landing'
-import RegisterScreen from './components/auth/Register'
-import { createStackNavigator } from '@react-navigation/stack';
+import LandingScreen from "./components/auth/Landing";
+import RegisterScreen from "./components/auth/Register";
+import { createStackNavigator } from "@react-navigation/stack";
 
 import { initializeApp } from "firebase/app";
 
@@ -31,25 +33,25 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-
-
 const Stack = createStackNavigator();
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Landings">
-        <Stack.Screen
-          name="Landing"
-          component={LandingScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Register"
-          component={RegisterScreen}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Landings">
+          <Stack.Screen
+            name="Landing"
+            component={LandingScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Register"
+            component={RegisterScreen}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
