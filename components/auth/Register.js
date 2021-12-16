@@ -107,16 +107,16 @@ const Register = () => {
     <View>
       <TextInput
         placeholder="name"
-        onChangeText={(name) => this.setState({ name })}
+        onChange={(e) => setFirstName(e.target.value)}
       />
       <TextInput
         placeholder="email"
-        onChangeText={(email) => this.setState({ email })}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <TextInput
         placeholder="password"
         secureTextEntry={true}
-        onChangeText={(password) => this.setState({ password })}
+        onChange={(e) => setPassword(e.target.value)}
       />
       {/* <TextInput
           placeholder="firstName"
